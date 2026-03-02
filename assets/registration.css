@@ -1,0 +1,57 @@
+/* Registration page styles (React app) */
+.opm-reg-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.opm-wrap {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.1);
+  width: 100%;
+  max-width: 440px;
+}
+.opm-wrap h2 { margin: 0 0 6px; color: #111827; font-size: 22px; }
+.opm-subtitle { color: #6b7280; font-size: 14px; margin-bottom: 20px; }
+.opm-badge { background: #dbeafe; color: #1e40af; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; display: inline-block; margin-bottom: 24px; }
+.opm-field { margin-bottom: 16px; }
+.opm-field label { display:block; font-weight:600; margin-bottom:5px; color:#374151; font-size:13px; }
+.opm-field input[type="text"],
+.opm-field input[type="email"],
+.opm-field input[type="password"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.opm-actions { margin-top: 18px; }
+.opm-btn {
+  width: 100%;
+  background: #2563eb;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.opm-btn[disabled] { opacity:.6; cursor:not-allowed; }
+.opm-note { font-size: 12px; color:#6b7280; margin-top: 10px; text-align:center; }
+.opm-alert {
+  margin: 12px 0 18px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.opm-alert--error { background:#fee2e2; color:#991b1b; border:1px solid #fecaca; }
+.opm-alert--success { background:#dcfce7; color:#166534; border:1px solid #bbf7d0; }
+.opm-row { display:flex; gap: 12px; }
+.opm-row > div { flex:1; }

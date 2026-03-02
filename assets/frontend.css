@@ -1,0 +1,235 @@
+/* Offer Provider Manager – Frontend Styles */
+
+/* ── Shared ───────────────────────────────────────────────── */
+.opm-archive-wrap,
+.opm-single-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.opm-cat-tag {
+    display: inline-block;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 0 4px 4px 0;
+    font-weight: 600;
+}
+
+/* ── Archive ──────────────────────────────────────────────── */
+.opm-archive-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.opm-page-title {
+    margin: 0;
+    font-size: 28px;
+    color: #111827;
+}
+
+.opm-company-label {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.opm-providers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.opm-provider-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    transition: box-shadow .2s, transform .2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.opm-provider-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
+    transform: translateY(-2px);
+}
+
+.opm-provider-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f9fafb;
+    border-bottom: 1px solid #f0f0f0;
+    min-height: 120px;
+}
+
+.opm-provider-logo img {
+    max-height: 100px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.opm-provider-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.opm-provider-name {
+    font-size: 18px;
+    margin: 0;
+    color: #111827;
+}
+
+.opm-provider-name a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.opm-provider-name a:hover {
+    color: #3b82f6;
+}
+
+.opm-website-link {
+    color: #6b7280;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.opm-website-link:hover { color: #3b82f6; }
+
+/* ── Coupons ──────────────────────────────────────────────── */
+.opm-coupons {
+    margin-top: 8px;
+}
+
+.opm-coupons h4 {
+    font-size: 13px;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #6b7280;
+}
+
+.opm-coupon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.opm-coupon-amount {
+    background: #fef9c3;
+    color: #92400e;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.opm-coupon-code {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: monospace;
+    cursor: pointer;
+    border: 1px dashed #d1d5db;
+    user-select: all;
+    transition: background .15s;
+}
+
+.opm-coupon-code:hover {
+    background: #e5e7eb;
+}
+
+/* ── No Providers ─────────────────────────────────────────── */
+.opm-no-providers {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    font-size: 18px;
+}
+
+/* ── Single ───────────────────────────────────────────────── */
+.opm-back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.opm-back-link:hover { color: #111827; }
+
+.opm-single-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+
+@media (max-width: 680px) {
+    .opm-single-card { grid-template-columns: 1fr; }
+}
+
+.opm-single-logo {
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-right: 1px solid #f0f0f0;
+}
+
+.opm-single-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.opm-single-body {
+    padding: 32px;
+}
+
+.opm-single-body h1 {
+    margin-top: 0;
+    color: #111827;
+}
+
+.opm-btn-visit {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background .2s;
+}
+
+.opm-btn-visit:hover { background: #2563eb; color: #fff; }
+
+.opm-single-body .opm-coupons h3 {
+    color: #374151;
+    margin-bottom: 12px;
+}
