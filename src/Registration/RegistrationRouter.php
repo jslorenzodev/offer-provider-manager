@@ -303,56 +303,50 @@ public function handleRestRegister( \WP_REST_Request $request ): \WP_REST_Respon
         200
     );
 }
-
 private function enqueueRegistrationAssets( string $token, CompanyDTO $company ): void {
     $dist_js  = OPM_PATH . 'assets/dist/registration.js';
     $dist_css = OPM_PATH . 'assets/dist/registration.css';
 
-    // Prefer Webpack build outputs (React + Tailwind compiled).
-    if ( file_exists( $dist_js ) && file_exists( $dist_css ) ) {
+    $use_dist = file_exists($dist_js) && file_exists($dist_css);
+
+    if ( $use_dist ) {
         wp_enqueue_style(
             'opm-registration',
             OPM_URL . 'assets/dist/registration.css',
             [],
-            (string) filemtime( $dist_css )
+            (string) filemtime($dist_css)
         );
 
         wp_enqueue_script(
             'opm-registration',
             OPM_URL . 'assets/dist/registration.js',
             [],
-            (string) filemtime( $dist_js ),
+            (string) filemtime($dist_js),
             true
         );
+
+        $handle = 'opm-registration';
     } else {
-        // Fallback (dev convenience): uses WP-bundled React + Tailwind CDN.
         wp_enqueue_style(
             'opm-registration-fallback',
             OPM_URL . 'assets/registration.css',
             [],
-            OPM_VERSION
-        );
-
-        wp_enqueue_script(
-            'opm-tailwind',
-            'https://cdn.tailwindcss.com',
-            [],
-            null,
-            false
+            defined('OPM_VERSION') ? OPM_VERSION : null
         );
 
         wp_enqueue_script(
             'opm-registration-fallback',
             OPM_URL . 'assets/registration-app.js',
             [ 'wp-element' ],
-            OPM_VERSION,
+            defined('OPM_VERSION') ? OPM_VERSION : null,
             true
         );
+
+        $handle = 'opm-registration-fallback';
     }
 
-    // Shared config for both build and fallback.
     wp_localize_script(
-        file_exists( $dist_js ) ? 'opm-registration' : 'opm-registration-fallback',
+        $handle,
         'opmRegistration',
         [
             'token'       => $token,
@@ -361,6 +355,7 @@ private function enqueueRegistrationAssets( string $token, CompanyDTO $company )
             'wpRestNonce' => wp_create_nonce( 'wp_rest' ),
             'restUrl'     => esc_url_raw( rest_url( 'opm/v1/register' ) ),
             'loginUrl'    => esc_url_raw( wp_login_url() ),
+            'useDist'     => $use_dist ? 1 : 0,
         ]
     );
 }
