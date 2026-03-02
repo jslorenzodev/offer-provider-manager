@@ -26,39 +26,8 @@ final class ProviderFrontend {
         add_filter( 'archive_template',   [ $this, 'archiveTemplate' ] );
         add_filter( 'single_template',    [ $this, 'singleTemplate' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueueAssets' ] );
-        add_action('wp_enqueue_scripts', [ $this, 'enqueueFrontendStyles' ]);
-    }
-public function enqueueFrontendStyles(): void
-{
-    if (
-        ! is_post_type_archive('offer_provider') &&
-        ! is_singular('offer_provider')
-    ) {
-        return;
     }
 
-    $css = OPM_PATH . 'assets/dist/frontend.css';
-    $js  = OPM_PATH . 'assets/dist/frontend.js';
-
-    if (file_exists($css)) {
-        wp_enqueue_style(
-            'opm-frontend',
-            OPM_URL . 'assets/dist/frontend.css',
-            [],
-            (string) filemtime($css)
-        );
-    }
-
-    if (file_exists($js)) {
-        wp_enqueue_script(
-            'opm-frontend',
-            OPM_URL . 'assets/dist/frontend.js',
-            [],
-            (string) filemtime($js),
-            true
-        );
-    }
-}
     /**
      * Redirect non-logged-in users away from the providers archive.
      * Runs on template_redirect — safe to call wp_redirect() here.
@@ -136,7 +105,7 @@ public function enqueueFrontendStyles(): void
         ) {
             wp_enqueue_style(
                 'opm-frontend',
-                OPM_URL . 'assets/dist/frontend.css',
+                OPM_URL . 'assets/frontend.css',
                 [],
                 OPM_VERSION
             );
