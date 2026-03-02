@@ -105,7 +105,7 @@ final class ProviderFrontend {
         ) {
             wp_enqueue_style(
                 'opm-frontend',
-                OPM_URL . 'assets/frontend.css',
+                OPM_URL . 'assets/dist/frontend.css',
                 [],
                 OPM_VERSION
             );
