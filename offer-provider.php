@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Offer Provider Manager
  * Description: Manages companies, users, offer providers with categories and coupons.
- * Version:     2.0.0
- * Author:      Custom Plugin
+ * Version:     1.0.0
+ * Author:      John Savar Lorenzo
  * Text Domain: offer-provider
  *
  */
