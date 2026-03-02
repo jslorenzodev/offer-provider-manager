@@ -13,7 +13,7 @@ declare( strict_types=1 );
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
+define('OPM_PLUGIN_FILE', __FILE__);
 define( 'OPM_VERSION',  '2.0.0' );
 define( 'OPM_PATH',     plugin_dir_path( __FILE__ ) );
 define( 'OPM_URL',      plugin_dir_url( __FILE__ ) );
